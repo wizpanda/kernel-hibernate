@@ -15,27 +15,27 @@ import org.hibernate.resource.transaction.spi.TransactionStatus
  */
 @Slf4j
 @CompileStatic
+@Singleton(strict = false)
 class HibernateSessionUtils {
 
-    static private SessionFactory sessionFactory
+    private final SessionFactory sessionFactory
+
+    private HibernateSessionUtils() {
+        sessionFactory = Holders.getApplicationContext().getBean("sessionFactory") as SessionFactory
+    }
 
     /**
      * Get the {@link SessionFactory} instance.
      * @return
      */
-    static SessionFactory getSessionFactory() {
-        if (sessionFactory) {
-            return sessionFactory
-        }
-
-        sessionFactory = Holders.getApplicationContext().getBean("sessionFactory") as SessionFactory
-        sessionFactory
+    SessionFactory getSessionFactory() {
+        return sessionFactory
     }
 
     /**
      * Flush & clear the current ongoing Hibernate's {@link Session}.
      */
-    static void flushAndClear() {
+    void flushAndClear() {
         Session session = getSessionFactory().currentSession
         session.flush()
         session.clear()
@@ -44,14 +44,14 @@ class HibernateSessionUtils {
     /**
      * Create a new {@link Transaction} within the current {@link Session}.
      */
-    static Transaction newTransaction() {
+    Transaction newTransaction() {
         sessionFactory.currentSession.beginTransaction()
     }
 
     /**
      * Commit the ongoing {@link Transaction} only it is active
      */
-    static boolean commitTransaction() {
+    boolean commitTransaction() {
         Transaction transaction = sessionFactory.currentSession.transaction
         if (transaction.status == TransactionStatus.ACTIVE) {
             transaction.commit()

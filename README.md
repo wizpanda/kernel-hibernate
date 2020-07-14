@@ -54,7 +54,7 @@ To prevent that, we added a check which will flush & clear the Hibernate's curre
     user.save()
 
     if (index % 1000 == 0) {
-        HibernateSessionUtils.flushAndClear()
+        HibernateSessionUtils.instance.flushAndClear()
     }
 }
 ```
