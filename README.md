@@ -1,5 +1,7 @@
 # Hibernate utility for "Grails + Hibernate" application
 
+[ ![Download](https://api.bintray.com/packages/wizpanda/grails-plugins/kernel-hibernate/images/download.svg) ](https://bintray.com/wizpanda/grails-plugins/kernel-hibernate/_latestVersion)
+
 This is a simple [Grails](https://grails.org/) plugin to provide some common utility classes & methods which is used in almost all
  applications. 
  
@@ -7,7 +9,23 @@ This is a simple [Grails](https://grails.org/) plugin to provide some common uti
 
 Only Grails 4+ applications are supported.
 
-## Uses
+## Installation
+
+Add the following to `build.gradle` file of your Grails 3 application
+
+**Under `repositories` section**
+
+```groovy
+maven { url "http://dl.bintray.com/wizpanda/grails-plugins" }
+```
+
+**Under `dependencies` section**
+
+```groovy
+compile "com.wizpanda.plugins:kernel-hibernate:0.0.1"       // Use whatever is the latest version
+```
+
+## API Uses
 
 ### Provide a 24 character unique id using `CustomIdDomain`
 
