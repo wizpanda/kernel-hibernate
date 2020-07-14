@@ -37,6 +37,11 @@ dependencies {
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.mockito:mockito-core"
 
+    compile "org.mongodb:bson:3.12.0"
+
+    provided "org.grails.plugins:hibernate5"
+    provided "org.hibernate:hibernate-core:5.4.0.Final"
+    provided "org.grails:grails-plugin-domain-class"
     provided "org.grails:grails-plugin-domain-class"
 }
 
