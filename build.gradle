@@ -4,16 +4,16 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.21.0"
     }
 }
 
 version "0.0.1"
 group "com.wizpanda.plugins"
 
-apply plugin: "eclipse"
 apply plugin: "idea"
 apply plugin: "org.grails.grails-plugin"
-apply plugin: "org.grails.grails-plugin-publish"
+apply plugin: 'com.jfrog.artifactory'
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
@@ -64,14 +64,6 @@ tasks.withType(GroovyCompile) {
 }
 // enable if you wish to package this plugin as a standalone application
 bootJar.enabled = false
-grailsPublish {
-    githubSlug = "wizpanda/kernel-hibernate"
-    userOrg = "wizpanda"
-    repo = "grails-plugins"
-    license {
-        name = "Apache-2.0"
-    }
-    title = "Kernel Hibernate"
-    desc = "A Grails plugin to provide utility classes for Hibernate"
-    developers = [sagrawal31: "Shashank Agrawal"]
-}
+
+apply from: "https://raw.githubusercontent.com/wizpanda/gradle-common/main/grails-plugin-jfrog-publish.gradle"
+apply from: "https://raw.githubusercontent.com/wizpanda/gradle-common/main/bump-version.gradle"
