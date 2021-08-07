@@ -4,7 +4,6 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.21.0"
     }
 }
 
@@ -13,7 +12,6 @@ group "com.wizpanda"
 
 apply plugin: "idea"
 apply plugin: "org.grails.grails-plugin"
-apply plugin: 'com.jfrog.artifactory'
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
@@ -41,7 +39,6 @@ dependencies {
 
     provided "org.grails.plugins:hibernate5"
     provided "org.hibernate:hibernate-core:5.4.0.Final"
-    provided "org.grails:grails-plugin-domain-class"
     provided "org.grails:grails-plugin-domain-class"
 }
 

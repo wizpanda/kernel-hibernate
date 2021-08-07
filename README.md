@@ -23,7 +23,7 @@ maven { url 'https://jitpack.io' }
 **Under `dependencies` section**
 
 ```groovy
-compile "com.wizpanda.plugins:kernel-hibernate:0.0.1"       // Use whatever is the latest version
+compile "com.wizpanda:kernel-hibernate:0.0.1"       // Use whatever is the latest version
 ```
 
 ## API Uses
