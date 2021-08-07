@@ -1,6 +1,7 @@
 # Hibernate utility for "Grails + Hibernate" application
 
 [![GitHub version](https://badge.fury.io/gh/wizpanda%2Fkernel-hibernate.svg)](https://badge.fury.io/gh/wizpanda%2Fkernel-hibernate)
+[![Release](https://jitpack.io/v/com.wizpanda/kernel-hibernate.svg)](https://jitpack.io/#com.wizpanda/kernel-hibernate)
 
 This is a simple [Grails](https://grails.org/) plugin to provide some common utility classes & methods which is used in almost all
  applications. 
@@ -16,7 +17,7 @@ Add the following to `build.gradle` file of your Grails 3 application
 **Under `repositories` section**
 
 ```groovy
-maven { url "https://wizpanda.jfrog.io/artifactory/default-maven-local" }
+maven { url 'https://jitpack.io' }
 ```
 
 **Under `dependencies` section**
